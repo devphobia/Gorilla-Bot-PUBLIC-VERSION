@@ -3,6 +3,7 @@
 import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
+from discord.ext.commands.errors import CommandInvokeError
 import cogs._json
 from random import randint
 import re
@@ -47,6 +48,15 @@ class FunCommands(commands.Cog):
     # Commandos e subcommandos de sorteio
     # Commands and subcommands for drawing lots (shuffling)
     
+
+    @roll.error
+    async def roll_error(ctx, error):
+        if isinstance(error, commands.CommandInvokeError):
+            if isinstance(error, IndexError):
+                await ctx.send("The gorilla can't roll that much.")
+        else:
+            await ctx.send("Use the following format so the command may work: **.g roll [number of rolls] d[faces of the die]**. :gorilla:")
+
     @commands.group()
     async def shuffle(self, ctx):
         global shuffler
