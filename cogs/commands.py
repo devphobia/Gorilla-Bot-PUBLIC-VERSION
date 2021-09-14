@@ -58,7 +58,7 @@ class Commands(commands.Cog):
 
     @commands.command()
     async def echo(self, ctx, *, message=None):
-        message = message or "What do you want the gorilla to say?"
+        message = message or "Use the following format so the command may work: **.g echo [message that you want the gorilla to say]**. :gorilla:"
         await ctx.send(message)
 
 # Cog setup

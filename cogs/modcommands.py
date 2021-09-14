@@ -35,13 +35,23 @@ class ModCommands(commands.Cog):
         for member in ctx.guild.members:
             if [f'{member.id}'] == member_id:
                 true_member = member
-        await ctx.send(f"**{true_member.name}** has been exiled from the server. :skull:")
         await ctx.guild.kick(true_member)
+        await ctx.send(f"**{true_member.name}** has been exiled from the server. :skull:")
     
+    
+    @exile.error
+    async def exile_error(self, ctx, error):
+        if isinstance(error, commands.CommandInvokeError):
+            if  isinstance(error.original, discord.errors.Forbidden):
+                await ctx.send("Sorry, but I can't do that. :gorilla:")
+        else:
+            raise error
+                
+
     # Manda o usuário para a blacklist
     # Blacklists the user
 
-    @has_permissions(kick_members=True)
+    @commands.has_permissions(kick_members=True)
     @commands.command()
     async def blacklist(self, ctx, user: discord.Member):
         if ctx.message.author.id == user.id:
