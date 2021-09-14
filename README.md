@@ -24,7 +24,7 @@ stream and lots of other cool stuff!
 And soon, more functionalities will be added as I continue to update the bot!  
 
 **Q:** Nice! So how do I use this GorillaBot?  
-A: Well, you can invite GorillaBot to your server with the following link: https://discord.com/api/oauth2/authorize?client_id=880407275511099413&permissions=8&scope=bot
+**A:** Well, you can invite GorillaBot to your server with the following link: https://discord.com/api/oauth2/authorize?client_id=880407275511099413&permissions=8&scope=bot
 
 **Q:** Wait, so why did I download this code in the first place?  
 **A:** You can use this code to help you code your own bot!
