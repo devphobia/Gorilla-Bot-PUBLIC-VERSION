@@ -50,7 +50,7 @@ class FunCommands(commands.Cog):
     
 
     @roll.error
-    async def roll_error(ctx, error):
+    async def roll_error(self, ctx, error):
         if isinstance(error, commands.CommandInvokeError):
             if isinstance(error, IndexError):
                 await ctx.send("The gorilla can't roll that much.")
